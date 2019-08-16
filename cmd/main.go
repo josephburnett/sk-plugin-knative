@@ -3,6 +3,7 @@ package main
 import (
 	"sync"
 
+	"github.com/josephburnett/sk-plugin-knative/pkg/plugin"
 	"github.com/josephburnett/sk-plugin/pkg/skplug"
 	"github.com/josephburnett/sk-plugin/pkg/skplug/proto"
 )
@@ -15,6 +16,7 @@ var _ skplug.Plugin = &pluginServer{}
 
 type pluginServer struct {
 	mux sync.RWMutex
+	map[string]*plugin.Autoscaler
 }
 
 func newPluginServer() *pluginServer {
